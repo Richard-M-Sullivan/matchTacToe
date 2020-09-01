@@ -11,9 +11,57 @@ Purpose:
     in the future.
 
 Instructions:
+    ATTENTION: The makefile within the project at this time
+               only supports mac and possibly linux. In order
+               to build the project on windows you will have
+               to use your own. There are no external libraries
+               and everything should be totally self contained,
+               so the compilation process should be fairly simple.
+               Best of luck yall.
+
+    1. Use the command "make clean" to delete extraneous files
+        
+        (Note: this will not delete the matchbox files. If you
+        want to train your AI from scratch it is recommended
+        that you delete the contents of the matchbox folder.)
+    
+    2. Use the command "make all" to compile the project
+
+    3. Use the command "make run" to run the project
+        (Note: alternatively you can do ./matchbox if you want)
+
+    4. When the application boots up you will see a menu in the
+        terminal. Enter the number of the menu item that you
+        want to select and then press enter. If you want to exit
+        you can only do it from this menu.
+
+    5. When playing the game, you can chose the move you want
+        to make by pressing a number, which corresponds to the 
+        column that you want to place your piece in, and hitting
+        enter. valid numbers would be from 1-8.
+
+    6. To train the AI you can play games against it, or you can
+        hit the train option in the menu. It will ask you to
+        specify how many games. 
+            (Note: the number entered will be multiplied by 10,000)
+        
+        Once the ai has reached a point that you feel is good enough
+        you can turn off training in the training menu. This will
+        stop the ai from changing as you play against it.
+
+        (Note: the way that the ai is trained can be changed in the
+            .trainrc file. Instructions for that will be written in
+            another location below the instructions section)
+
 
 Execution:
 
+
+-------------------------------------------------------------------------
+the remainder of the file is the planning and work that went into the
+creation of this applicaiton. If you are interested in reading further go
+ahead, but know that this is mainly for documenting my thought process
+throughout the project.
 
 Planning:
 
@@ -77,4 +125,19 @@ what problems do I expect to face?
         want in the c++ language. 
 
 
+Major Project Accomplishments:
+    9/4/2020
+    1 created a new gethub account that is seperate from my student
+      account for school to hold personal projects
 
+    2 created a new repository and populated it with a makefile of
+      my own design
+
+    3 created an empty project and wrote out a the readme.txt file
+
+
+Project Aspirations:
+    1 convert readme from a txt file to a md or a rst file.
+      To do this I will have to see which github mainly uses, and
+      then I have to research how to format text within the specified
+      markup language.
