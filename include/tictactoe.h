@@ -21,8 +21,8 @@ class Board{
                             //    0 1 0 -> 012010212
                             //    2 1 2
 
-    bool makeMove();//allows you to specify a location and places the
-                    //correct piece there if the move is valid
+    bool makeMove(int);//allows you to specify a location and places the
+                       //correct piece there if the move is valid
     
     int getState(); //returns the state of the board
     
