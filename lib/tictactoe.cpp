@@ -15,7 +15,15 @@ Board::~Board(){
 }
 
 int Board::getBoard(){
-    
+    int boardCode = 0;//create a holder for our board number
+
+    for (int i=0; i< 10; i++){ //this will add a number into the ones
+        boardCode *= 10;       //place, then shift it over, and repeat
+                               //until all the numbers are in sequence
+        boardCode += this->location[i];
+    }
+
+    return boardCode;
 }
 
 bool Board::makeMove(){

@@ -6,7 +6,6 @@ int main() {
     
     Board board;
 
-    std::cout<<"not broke"<<std::endl;
     
     return 0; 
 }
