@@ -40,8 +40,67 @@ bool Board::makeMove(int pos){
 }
 
 int Board::getState(){
-    
+    int state = 0;//initial state is keep going
+    //check for wins
+        //check for horizontal match top row
+    if(this->location[0] == this->location[1] &&
+        this->location[0] == this->location[2]){
+        
+        this->state = this->location[0];
+    }
+    //check for horizontal match middle row
+    else if(this->location[3] == this->location[4] &&
+        this->location[3] == this->location[5]){
+        
+        this->state = this->location[3];
+    }
+    //check for horizontal match bottom row
+    else if(this->location[6] == this->location[7] &&
+        this->location[6] == this->location[8]){
+        
+        this->state = this->location[6];
+    }
+    //check for vertical match left column
+    else if(this->location[0] == this->location[3] &&
+        this->location[0] == this->location[6]){
+        
+        this->state = this->location[0];
+    }
+    //check for vertical match middle column
+    else if(this->location[1] == this->location[4] &&
+        this->location[1] == this->location[7]){
+        
+        this->state = this->location[1];
+    }
+    //check for vertical match right column
+    else if(this->location[2] == this->location[5] &&
+        this->location[2] == this->location[8]){
+        
+        this->state = this->location[2];
+    }
+    //check for diagonal match left 
+    else if(this->location[0] == this->location[4] &&
+        this->location[0] == this->location[8]){
+        
+        this->state = this->location[0];
+    }
+    //check for diagonal match right 
+    else if(this->location[2] == this->location[4] &&
+        this->location[2] == this->location[6]){
+        
+        this->state = this->location[2];
+    }
+    //check for draw
+    else{     //if no zeroes then draw
+        this->state = -1;
+        for(int i = 0; i < 9; i++){
+            if(this->location[i] == 0){
+                this->state = 0;
+            }
+        }
+    }
 
+    return this->state;
 }
 
 void Board::display(){
