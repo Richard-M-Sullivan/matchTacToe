@@ -5,7 +5,8 @@
 int main() { 
     
     Board board;
+    board.display();
+    std::cout<<board.getBoard()<<std::endl;
 
-    
     return 0; 
 }
