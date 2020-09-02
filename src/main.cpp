@@ -6,8 +6,7 @@ int main() {
     
     Board board;
 
-    std::cout<<board.location[0]<<std::endl;
-
-
+    std::cout<<"not broke"<<std::endl;
+    
     return 0; 
 }
