@@ -7,7 +7,7 @@ TARGET = exeName   # change target to change executible name
 
 CXX = g++
 
-CFLAGS = -Iinclude
+CFLAGS = -std=c++11 -Iinclude
 LFLAGS = 
 
 

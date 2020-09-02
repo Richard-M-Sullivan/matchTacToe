@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 class Board{
     
@@ -15,10 +16,10 @@ class Board{
     Board();        //sets all values to their initial state
     ~Board();       //cleans up
 
-    int getBoard(); //returns a number showing the board values
-                    //ex: 0 1 2
-                    //    0 1 0 -> 012010212
-                    //    2 1 2
+    std::string getBoard(); //returns a number showing the board values
+                            //ex: 0 1 2
+                            //    0 1 0 -> 012010212
+                            //    2 1 2
 
     bool makeMove();//allows you to specify a location and places the
                     //correct piece there if the move is valid
