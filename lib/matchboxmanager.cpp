@@ -75,6 +75,9 @@ bool MatchboxManager::getMatchbox(std::string boardCode){
     else{
         this->boxList[this->boxNum].selectedIndex = std::rand() % 9;
     }
+    
+    this->boxList[this->boxNum].boardCode = boardCode;
+
     boxFileIn.close();
 
 }
@@ -83,10 +86,49 @@ int MatchboxManager::getBead(){
     return this->boxList[this->boxNum].selectedIndex + 1;
 }
 
-bool MatchboxManager::updateBoxes(bool gameState){
+bool MatchboxManager::updateBoxes(int result){
+    int change;
+    if (result == 3){
+        change = 0;
+    }
+    else if(result == 1){
+        change = 2;
+    }
+    else{
+        change = -1;
+    }
+    while(this->boxNum >= 0){
+        std::cout<<this->boxNum<<": ";
+        this->boxList[boxNum].beads[this->boxList[this->boxNum].selectedIndex] += change;
+        std::cout<<this->boxList[boxNum].selectedIndex<<", ";
+        std::cout<<this->boxList[boxNum].beads[this->boxList[this->boxNum].selectedIndex] <<std::endl;
+
+        if( this->boxList[boxNum].beads[this->boxList[this->boxNum].selectedIndex] < 0){
+            std::cout<<"this should not be reached"<<std::endl;
+            this->boxList[boxNum].beads[this->boxList[this->boxNum].selectedIndex] = 0;
+        
+        }
+
+        std::ofstream boxFileOut;
+
+        boxFileOut.open("./MatchBoxes/"+this->boxList[this->boxNum].boardCode+".txt");
+        for(int i=0; i<9; i++){
+            boxFileOut<< this->boxList[this->boxNum].beads[i] <<std::endl;
+        }
+        boxFileOut.close();
+        
+        this->boxNum --;    
+    }
 
 }
 
-
-
+void MatchboxManager::print(){
+    for(int i = 0; i < 9; i++){
+        std::cout<<this->boxList[i].boardCode<<": "<<this->boxList[i].selectedIndex<<" :";
+        for (int j=0; j<9;j++){
+            std::cout<<this->boxList[i].beads[j]<<" ";
+        }
+        std::cout<<std::endl;
+    }
+}
 

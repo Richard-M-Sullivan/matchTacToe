@@ -19,8 +19,9 @@ class MatchboxManager {
     MatchboxManager();
     ~MatchboxManager();
 
+    void print();
     bool getMatchbox(std::string boardcode);
     int getBead();
-    bool updateBoxes(bool);
+    bool updateBoxes(int);
 
 };
