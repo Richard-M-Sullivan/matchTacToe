@@ -1,9 +1,15 @@
 #include <iostream> 
 #include "tictactoe.h"// this includes the board class
+#include "matchboxmanager.h"//this allows you to use matchboxes to generate
+                          //game inputs
+
+void clearScreen();
 
 int main() { 
     
     Board board;//create the board
+    MatchboxManager manager;//create a manager for manipulating matchboxes
+
     int move = 0;//create a variable to hold move selections
     int state = 0;//hold the state of the game
     
@@ -44,5 +50,13 @@ int main() {
     else{
         std::cout<<"an error occured: illegal state"<<std::endl;
     }
+
     return 0; 
 }
+
+void clearScreen(){
+    for(int i=0; i<5; i++){
+        std::cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"<<std::endl;
+    }
+}
+
