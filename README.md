@@ -65,11 +65,8 @@ another location below the instructions section)*
 
 ---------------------------------------------------------------------------
 
-|the remainder of the file is the planning and work that went into the.
-creation of this applicaiton. If you are interested in reading further go
-ahead, but know that this is mainly for documenting my thought process.
-throughout the project. 
------------------------|
+| the remainder of the file is the planning and work that went into the creation of this applicaiton. If you are interested in reading further goahead, but know that this is mainly for documenting my thought process throughout the project. | 
+|------------------------------------------------------------------------------|
 
 #### Planning:
 
