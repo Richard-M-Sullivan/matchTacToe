@@ -79,8 +79,8 @@ bool MatchboxManager::getMatchbox(std::string boardCode){
 
 }
 
-int MatchboxManager::getBead(std::string boardCode){
-
+int MatchboxManager::getBead(){
+    return this->boxList[this->boxNum].selectedIndex + 1;
 }
 
 bool MatchboxManager::updateBoxes(bool gameState){

@@ -10,8 +10,10 @@ int main() {
     Board board;//create the board
     MatchboxManager manager;//create a manager for manipulating matchboxes
  
-    std::cout<<board.getBoard()<<std::endl;
-
+    manager.getMatchbox(board.getBoard());
+    board.display();
+    board.makeMove(manager.getBead());
+    board.display();
     manager.getMatchbox(board.getBoard());
 
     return 0;

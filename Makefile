@@ -29,7 +29,7 @@ run:
 .PHONY: clean
 clean:
 	rm -f $(TARGET) $(OBJS)
-	rm -f ./MatchBoxes/.*
+	rm -f ./MatchBoxes/*.txt
 
 
 .PHONY: vim
