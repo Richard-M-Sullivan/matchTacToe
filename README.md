@@ -18,7 +18,8 @@ in the future.
 #### Instructions:
   **ATTENTION:**
   
-```The makefile within the project at this time
+```
+The makefile within the project at this time
 only supports mac and possibly linux. In order
 to build the project on windows you will have
 to use your own. There are no external libraries
@@ -65,8 +66,11 @@ another location below the instructions section)*
 
 ---------------------------------------------------------------------------
 
-| the remainder of the file is the planning and work that went into the creation of this applicaiton. If you are interested in reading further goahead, but know that this is mainly for documenting my thought process throughout the project. | 
-|------------------------------------------------------------------------------|
+| the remainder of the file is the planning and work that went into the 
+creation of this applicaiton. If you are interested in reading further goahead,
+but know that this is mainly for documenting my thought process throughout 
+the project. | 
+|-----------------------------------------------------------------------------|
 
 #### Planning:
 
@@ -159,6 +163,7 @@ fill in later
     
 7. created a folder that will hold the matchboxes in the future
 
+8. version 1 completed, but lots of bugs.
 -----------------------------------------------------------------------
     
 #### Project Aspirations:

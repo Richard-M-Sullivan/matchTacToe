@@ -11,7 +11,6 @@ MatchboxManager::MatchboxManager(){
         boxList[i].selectedIndex = -1;
         boxList[i].boardCode = "none";
     }
-    std::srand(std::time(NULL));
 }
 
 MatchboxManager::~MatchboxManager(){
@@ -38,9 +37,16 @@ bool MatchboxManager::getMatchbox(std::string boardCode){
         std::ofstream boxFileOut;
 
         boxFileOut.open("./MatchBoxes/"+boardCode+".txt");
+        int moves = 0;
+
         for(int i=0; i<9; i++){
             if(boardCode.at(i) == '0'){
-                boxFileOut<<"100"<<std::endl;
+                moves ++;
+            }
+        }
+        for(int i=0; i<9; i++){
+            if(boardCode.at(i) == '0'){
+                boxFileOut<<moves * 5<<std::endl;
             }
             else{
                 boxFileOut<<"0"<<std::endl;
@@ -73,7 +79,11 @@ bool MatchboxManager::getMatchbox(std::string boardCode){
         this->boxList[this->boxNum].selectedIndex = index;
     }
     else{
-        this->boxList[this->boxNum].selectedIndex = std::rand() % 9;
+        for(int i=0;i<9;i++){
+            if(boardCode.at(i) == 0){
+                this->boxList[this->boxNum].selectedIndex = i;
+            }    
+        }
     }
     
     this->boxList[this->boxNum].boardCode = boardCode;
@@ -98,13 +108,9 @@ bool MatchboxManager::updateBoxes(int result){
         change = -1;
     }
     while(this->boxNum >= 0){
-        std::cout<<this->boxNum<<": ";
         this->boxList[boxNum].beads[this->boxList[this->boxNum].selectedIndex] += change;
-        std::cout<<this->boxList[boxNum].selectedIndex<<", ";
-        std::cout<<this->boxList[boxNum].beads[this->boxList[this->boxNum].selectedIndex] <<std::endl;
 
         if( this->boxList[boxNum].beads[this->boxList[this->boxNum].selectedIndex] < 0){
-            std::cout<<"this should not be reached"<<std::endl;
             this->boxList[boxNum].beads[this->boxList[this->boxNum].selectedIndex] = 0;
         
         }
