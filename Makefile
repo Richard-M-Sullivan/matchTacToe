@@ -1,44 +1,18 @@
 # VARIABLES
 
-FILES = $(wildcard src/*.cpp) $(wildcard lib/*.cpp)
-HEADERS = $(wildcard include/*.h)
-OBJS = $(FILES:.cpp=.o)
-TARGET = exeName   # change target to change executible name
+FILES = $(wildcard ./*.py) # example wildcard w dirctory $(wildcard lib/*.cpp)
+TARGET = matchTacToe.py
 
-CXX = g++
-
-CFLAGS = -std=c++11 -Iinclude
-LFLAGS = 
-
-
-.PHONY: all
-all: $(TARGET)
-
-$(TARGET):	$(OBJS)
-	$(CXX) -o $(TARGET) $(OBJS) $(LFLAGS)
-
-%.o:	%.cpp
-	$(CXX) -c $< -o $@ $(CFLAGS)
 
 
 .PHONY: run
 run:
-	./$(TARGET)
+	python3 $(TARGET)
 
-
-.PHONY: clean
-clean:
-	rm -f $(TARGET) $(OBJS)
-	rm -f ./MatchBoxes/*.txt
 
 
 .PHONY: vim
 vim: 
-	vim $(FILES) $(HEADERS)
+	vim $(FILES)
 
 
-.PHONY: project
-project: 
-	mkdir src lib include
-	touch ./src/main.cpp
-	echo "#include <iostream> \n\nint main() { \n    return 0; \n}" > ./src/main.cpp
