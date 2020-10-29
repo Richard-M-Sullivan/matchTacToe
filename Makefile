@@ -1,6 +1,7 @@
 # VARIABLES
 
 FILES = $(wildcard ./*.py) # example wildcard w dirctory $(wildcard lib/*.cpp)
+FILES += $(wildcard Game/*.py)
 TARGET = matchTacToe.py
 
 
