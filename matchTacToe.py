@@ -15,35 +15,46 @@ import tictactoe
 
 #instantiate the AI to play the game
 AI = matchbox_manager.Matchbox_Manager()
-#instantiate the class to manage the tic tac toe board
+#instantiate the game class to manage the tic tac toe board
 game = tictactoe.Game()
 
-#display the board on the screen
-game.printBoard()
+#flag for the menu loop
+quit = False
 
+#menu loop and holds game loop
+while(quit == False):
 
-#game loop (the loop is dependant on the testing variable)
-testing = 0
+    choice = input("type x to go first\ntype o to go second\ntype t to train\
+the AI")
 
-print("game started")
-while(testing <= 2):
-    
-    #based on the turn determine whose turn it is
-    #then submit the move
-    if (game.get_turn() % 2 == 0):
-        print("player 1")        
-        game.submit_move(1)
-    else:
-        print("player 2")
-        game.submit_move(1)
-    
-    testing += 1
-    
     #display the board on the screen
     game.printBoard()
 
-print("game finished")
+#game loop (the loop is dependant on the testing variable)
+    testing = 0
 
+    print("game started")
+    while(testing <= 2):
+        
+        #based on the turn determine whose turn it is
+        #then submit the move
+        if (game.get_turn() % 2 == 0):
+            print("player 1")        
+            game.submit_move(testing)
+        else:
+            print("player 2")
+            game.submit_move(testing)
+        
+        testing += 1
+        
+        #display the board on the screen
+        game.printBoard()
 
+    print("game finished")
+
+    choice = input("would you like to play again? y/n")
+
+    if(choice == 'n'):
+        quit = True
 
 
