@@ -228,8 +228,8 @@ fill in later
     
 #### Project Aspirations:
 - [x] create README.md for version 2
-- [X] Flesh out how the matchbox AI will work
-- [] Write matchbox ai class
+- [x] Flesh out how the matchbox AI will work
+- [x] Write matchbox ai class
 - [] Write tic tac toe in the terminal
 - [] Write function that gets a string from the board
 - [] Implement searching and creating files

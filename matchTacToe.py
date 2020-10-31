@@ -9,9 +9,11 @@ beyond the scope of just simple board games.
 """
 
 from matchboxAI import matchbox_manager
+import tictactoe
 
 AI = matchbox_manager.Matchbox_Manager()
 
+game = tictactoe.Game()
 
 
 
