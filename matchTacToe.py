@@ -37,26 +37,25 @@ the AI")
     if(choice == 'o'):
         playerTurn = 1
     
-    print("playerTurn =", playerTurn)
     #display the board on the screen
     game.printBoard()
 
     #game loop (the loop is dependant on the testing variable)
     testing = 0
 
-    print("game started")
     while(testing <= 2):
         
         #based on the turn determine whose turn it is
         #then submit the move
         if (game.get_turn() % 2 == playerTurn):
-            print("player 1")        
             game.submit_move(testing)
+
+        #computer1's turn
         elif (game.get_turn() % 2 == 0):
-            print("computer1")
             game.submit_move(testing)
+
+        #computer2's turn
         else:
-            print("computer2")
             game.submit_move(testing)
         
         testing += 1
@@ -64,7 +63,6 @@ the AI")
         #display the board on the screen
         game.printBoard()
 
-    print("game finished")
 
     #if they chose not to play again, set quit to true
     choice = input("would you like to play again? y/n")
