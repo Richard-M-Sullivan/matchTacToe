@@ -18,14 +18,18 @@ AI = matchbox_manager.Matchbox_Manager()
 #instantiate the class to manage the tic tac toe board
 game = tictactoe.Game()
 
+#display the board on the screen
+game.printBoard()
+
 
 #game loop (the loop is dependant on the testing variable)
 testing = 0
 
+print("game started")
 while(testing <= 2):
-    print("game started")
     
     #based on the turn determine whose turn it is
+    #then submit the move
     if (game.get_turn() % 2 == 0):
         print("player 1")        
         game.submit_move(1)
@@ -34,6 +38,9 @@ while(testing <= 2):
         game.submit_move(1)
     
     testing += 1
+    
+    #display the board on the screen
+    game.printBoard()
 
 print("game finished")
 
