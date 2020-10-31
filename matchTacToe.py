@@ -8,7 +8,10 @@ beyond the scope of just simple board games.
 
 """
 
-print("hello world")
+from matchboxAI import matchbox_manager
+
+AI = matchbox_manager.Matchbox_Manager()
+
 
 
 
