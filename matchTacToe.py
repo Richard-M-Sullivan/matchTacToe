@@ -19,16 +19,23 @@ AI = matchbox_manager.Matchbox_Manager()
 game = tictactoe.Game()
 
 
-#game loop (loop will only run once for testing by setting test to false at the
-#end of the loop )
+#game loop (the loop is dependant on the testing variable)
+testing = 0
 
-testing = True
-while(testing):
+while(testing <= 2):
     print("game started")
-    testing = False
+    
+    #based on the turn determine whose turn it is
+    if (game.get_turn() % 2 == 0):
+        print("player 1")        
+        game.submit_move(1)
+    else:
+        print("player 2")
+        game.submit_move(1)
+    
+    testing += 1
 
 print("game finished")
-
 
 
 
