@@ -12,12 +12,17 @@ class Board:
     #takes in the number of the piece to add to the board, andit adds that
     #piece to the board at the index move choice
     def update(self,pieceNum,moveChoice):
+        valid = False
         index = 0
         for row in range(len(self.board)):
             for column in range(len(self.board[row])):
                 if (index == moveChoice): 
-                    self.board[row][column] = pieceNum
+                    if(self.board[row][column] == 0):
+                        self.board[row][column] = pieceNum
+                        valid = True
                 index += 1
+
+        return valid
 
     #goes through the board and sets it to all 0s
     def clear(self):
@@ -53,11 +58,23 @@ class Game:
     # allows you to submit a move, and the game updates the board
     # with the correct piece (does not check for valid moves, so be careful)
     def submit_move(self, moveNum):
-        
+        valid = False
         #update the board with the right piece at the correct space
-        self.board.update((self.turn%2)+1,moveNum) 
+        if(self.board.update((self.turn%2)+1,moveNum)):
+            self.turn += 1
+            valid = True
 
-        self.turn += 1
+        return valid
+
+    def human_submit_move(self):
+        valid = False
+
+        while(not valid):
+            choice = input("enter 1 - 9 to pick a space on the board")
+            if(self.submit_move(int(choice)-1)):
+                valid = True
+            else:
+                print("invalid move try again...")
 
     #display the board in the terminal
     def printBoard(self):

@@ -14,7 +14,9 @@ from matchboxAI import matchbox_manager
 import tictactoe
 
 #instantiate the AI to play the game
-AI = matchbox_manager.Matchbox_Manager()
+computer1 = matchbox_manager.Matchbox_Manager()
+computer2 = matchbox_manager.Matchbox_Manager()
+
 #instantiate the game class to manage the tic tac toe board
 game = tictactoe.Game()
 
@@ -48,17 +50,17 @@ the AI")
         #based on the turn determine whose turn it is
         #then submit the move
         if (game.get_turn() % 2 == playerTurn):
-            game.submit_move(testing)
+            game.human_submit_move()
 
         #computer1's turn
         elif (game.get_turn() % 2 == 0):
+            computer1.get_matchbox(game.getString())
             game.submit_move(testing)
-            print(game.getString())
 
         #computer2's turn
         else:
+            computer2.get_matchbox(game.getString())
             game.submit_move(testing)
-            print(game.getString())
         
         testing += 1
         
@@ -73,5 +75,4 @@ the AI")
     
     #clear the board for the next round
     game.reset()
-
 
