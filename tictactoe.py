@@ -17,8 +17,14 @@ class Board:
             for column in range(len(self.board[row])):
                 if (index == moveChoice): 
                     self.board[row][column] = pieceNum
-                    print("index:",moveChoice,"turn:",pieceNum)
                 index += 1
+
+    #goes through the board and sets it to all 0s
+    def clear(self):
+        for i in range(len(self.board)):
+            for j in range(len(self.board[i])):
+                self.board[i][j] = 0
+
 
 class Game:
     #the game has a board and keeps track of the important aspects
@@ -55,3 +61,14 @@ class Game:
                 print(item,end=' ')
                 
             print()
+
+
+    def clearBoard(self):
+        self.board.clear()
+
+
+    def reset(self):
+        self.clearBoard()
+        self.turn = 0
+
+

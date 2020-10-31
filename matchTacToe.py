@@ -23,14 +23,25 @@ quit = False
 
 #menu loop and holds game loop
 while(quit == False):
-
+    
+    #get player input 
     choice = input("type x to go first\ntype o to go second\ntype t to train\
 the AI")
 
+    #player turn as well as computer1 and computer2 hold whether they play
+    #on odd or even numbered games. computer1 and computer2 don't change, but
+    #what will change is the playerTurn. 0 means they go first and on even
+    #numbered turns, and 1 means they go second and on odd numbered turns
+    playerTurn = 0
+
+    if(choice == 'o'):
+        playerTurn = 1
+    
+    print("playerTurn =", playerTurn)
     #display the board on the screen
     game.printBoard()
 
-#game loop (the loop is dependant on the testing variable)
+    #game loop (the loop is dependant on the testing variable)
     testing = 0
 
     print("game started")
@@ -38,11 +49,14 @@ the AI")
         
         #based on the turn determine whose turn it is
         #then submit the move
-        if (game.get_turn() % 2 == 0):
+        if (game.get_turn() % 2 == playerTurn):
             print("player 1")        
             game.submit_move(testing)
+        elif (game.get_turn() % 2 == 0):
+            print("computer1")
+            game.submit_move(testing)
         else:
-            print("player 2")
+            print("computer2")
             game.submit_move(testing)
         
         testing += 1
@@ -52,9 +66,12 @@ the AI")
 
     print("game finished")
 
+    #if they chose not to play again, set quit to true
     choice = input("would you like to play again? y/n")
-
     if(choice == 'n'):
         quit = True
+    
+    #clear the board for the next round
+    game.reset()
 
 
