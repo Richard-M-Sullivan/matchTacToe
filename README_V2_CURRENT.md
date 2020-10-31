@@ -26,10 +26,10 @@ is empty. If you want to train your AI, then use the train function in the
 application. After your AI is trained the matchbox folder will contain all
 of the boxes which your AI uses to play. If you want to read about how the
 AI works, so you can use it for other projects, then scroll down to "How
-Will The Program Work" for an explination of the AI's implamentation.
+Will The Program Work" for an explanation of the AI's implementation.
 
 -------------------------------------------------------------------------
-#### Dependancies:
+#### Dependencies:
 
 This Project will require you to install two libraries. 
 1. pygame
@@ -62,7 +62,7 @@ it would take longer to go back and relearn how my code works in the first
 place (it has been a while since I have looked at the code base). 
 
 Being that I am going to start over, I am going to change the structure of
-my code as to better decouple the AI class from the implamentation of the
+my code as to better decouple the AI class from the implementation of the
 game. This is because I would like to be able to repurpose the AI in this
 project for use in other board games. 
 
@@ -75,15 +75,15 @@ full blown class to handle a simple unit of data.
 The last short coming of the previous code was the lack of comments in the
 code. This made it difficult to come back later and keep the code running and 
 up to date. Documentation is super important, especially because I want this 
-code to be made for the public to observe and perhapse utilize in ones own
+code to be made for the public to observe and perhapse utilize in one's own
 project. 
 
 I have also decided that I want to rewrite the application in Python3 because
-it has lots of features that are easily usable, and is simpeler than c++. 
+it has lots of features that are easily usable, and is simpler than c++. 
 Because this is a personal project and would not benefit from running at 
 blazing speeds I see no reason to use a lower level language for a project
 like this. Python seems to fulfill all of the requirements that I need, while
-providing a faster development time due to simple syntax and qutomated memory
+providing a faster development time due to simple syntax and automated memory
 management.
 
 #### Planning:
@@ -112,8 +112,8 @@ make its selection, or it will load that informaiton from a file that already
 has been created.
 
 The file in this case represents a box, and what is inside of the file
-represents the beads. In each file we will have a list of numbers representing
-for each item in the list a different move, and the number of each item is the
+represents the beads. In each file we will have a list of numbers representing,
+for each item in the list, a different move, and the number of each item is the
 number of beads that are present for that move. To select a bead we add up all
 of the beads to get a total count, which is the max value for a generated 
 random number. We then subtract each number from the random one until we reach
@@ -141,7 +141,7 @@ we can find the right box to edit, and we save the index of the selected move,
 so we know which move to add or take beads away from. Then in the event that
 we won, we go through the list and either punish every box, or we reward every
 box. When we punish/reward the boxes we remove them from the list until it is
-empty so another game an be started.
+empty so another game can be started.
 
 Note that for training the ai, you will have to create another instance of the
 ai manager because it is meant to be a single player. If you try to use only
@@ -170,7 +170,7 @@ sense.
 
 ##### problems faced in version 1 
 
-1. code reusibility. 
+1. code reusability. 
 I want to make a follow up application that uses the same
 technique as the match box ai in order to play connect four,
 but I want to use the same matchbox management class across
@@ -181,13 +181,13 @@ this can be then turned into a stand alone library to be
 shared with others who are interested in making their own 
 match box projects.
 
-2. how to implament things within the c++ language.
+2. how to implement things within the c++ language.
 It has been a while since I have used the c++ language, and I
 am very rusty. Thankfully I have a strong understanding of the
 basics of how to utilize techniques such as object oriented
 design and the use of libraries and utilities. All I need to do
 is take the general knowledge and understanding that I have,
-and find documentation that alows me to implament the things I
+and find documentation that alows me to implement the things I
 want in the c++ language. 
 
 -------------------------------------------------------------------
@@ -195,7 +195,7 @@ want in the c++ language.
 ##### Major Project Accomplishments:
 
 ###### 9/4/2020
-1. created a new gethub account that is seperate from my student
+1. created a new github account that is seperate from my student
 account for school to hold personal projects
 
 2. created a new repository and populated it with a makefile of
@@ -232,19 +232,19 @@ fill in later
 - [] Write matchbox ai class
 - [] Write tic tac toe in the terminal
 - [] Write function that gets a string from the board
-- [] Implament searching and creating files
-- [] Implament seeding files
-- [] Implament making a move seleciton
+- [] Implement searching and creating files
+- [] Implement seeding files
+- [] Implement making a move selection
 - [] Write a function that takes ai move and puts it on the tic tac toe board
-- [] Implament storing boards and move selections in a list
-- [] Implament punishing/rewarding the boxes
+- [] Implement storing boards and move selections in a list
+- [] Implement punishing/rewarding the boxes
 - [] allow option to chose if you want to be x or o
 - [] allow an option to train ai in tic tac toe program
-- [] Implament selecting what ai you want to use, so you can have different
+- [] Implement selecting what ai you want to use, so you can have different
 versions for the same game
-- [] Implament AI locking, so once an AI has reached a level of proficiency
+- [] Implement AI locking, so once an AI has reached a level of proficiency
 that you want you can lock it to prevent changes.
-- [] Rewrite tic tac toe to be implamented in pygame to have rich visuals
+- [] Rewrite tic tac toe to be implemented in pygame to have rich visuals
 
 
 -----------------------------------------------------------------
