@@ -53,10 +53,12 @@ the AI")
         #computer1's turn
         elif (game.get_turn() % 2 == 0):
             game.submit_move(testing)
+            print(game.getString())
 
         #computer2's turn
         else:
             game.submit_move(testing)
+            print(game.getString())
         
         testing += 1
         

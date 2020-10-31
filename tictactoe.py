@@ -25,6 +25,14 @@ class Board:
             for j in range(len(self.board[i])):
                 self.board[i][j] = 0
 
+    def string(self):
+        string = ''
+        for row in self.board:
+            for item in row:
+                string += str(item) 
+
+        return string
+
 
 class Game:
     #the game has a board and keeps track of the important aspects
@@ -62,13 +70,18 @@ class Game:
                 
             print()
 
-
+    #set all the values of the board to their initial state
     def clearBoard(self):
         self.board.clear()
 
-
+    #clear the board and reset the turn number
     def reset(self):
         self.clearBoard()
         self.turn = 0
+
+    #return a string of the board
+    def getString(self):
+        return self.board.string()
+
 
 
