@@ -1,37 +1,72 @@
 #include <stdio.h>
 #include <application.h>
 
+
 short board[ROW][COLUMN] = {EMPTY};
+menu menuSelect;
+char userInput;
+
 
 void application_init(){
-    printf("application init: setting QUIT to false. \n\n");
     application_QUIT = FALSE;
+    menuSelect = MAIN;
+    userInput = ' ';
 }
 
+
+
 void application_display() {
-    printf("application display: displaying game board. \n\n");
-    for (int i = 0; i < ROW; i++) {
-        for (int j = 0; j < COLUMN; j++) {
-            printf("%d ", board[i][j]);
-        }
-        printf("\n");
+
+    switch(menuSelect){
+        case MAIN:
+            printf("MATCH TAC TOE\n\n");
+            printf("play tic tac toe\n");
+            printf("options\n");
+            printf("train match boxes\n");
+            break;
+        case OPTION:
+            printf("options menu\n");
+            break;
+        case TRAIN:
+            printf("train menu\n");
+            break;
+        default:
+            printf("default\n");
+            break;
     }
 
     printf("\n");
-
 }
+
+
 
 void application_getInput(){
-    printf("application getInput: \n\n");
-
+   userInput = getchar(); 
 }
+
 
 
 void application_update(){
-    printf("application update: setting quit to TRUE. \n\n");
-    application_QUIT = TRUE;
+    switch menuSelect{
+        case MAIN:
+            break;
+        case OPTION:
+            break;
+        case TRAIN:
+            break;
+        default:
+            break;
+    }
+
+    if (userInput == 'q'){ 
+        application_QUIT = TRUE;
+    }
+
+    userInput = ' ';
 }
 
+
+
 void application_shutDown(){
-    printf("application shutdown: \n\n");
+
 }

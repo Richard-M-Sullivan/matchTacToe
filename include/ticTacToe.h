@@ -4,6 +4,6 @@
 #define ROW 3
 #define COLUMN 3
 
-enum {EMPTY, X, O};
+enum boardCell{EMPTY, X, O};
 
 #endif
