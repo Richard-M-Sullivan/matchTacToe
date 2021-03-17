@@ -6,7 +6,7 @@
 #define FALSE 0
 #define TRUE 1
 
-typedef enum {MAIN,OPTION,TRAIN} menu;
+typedef enum {MAIN,PLAY,OPTION,TRAIN} menu;
 
 void application_init();
 
