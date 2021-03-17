@@ -4,30 +4,25 @@
 int main(void){
 
     //setup stuff
-        //matchbox table - list of matchboxes in memory
-        //game board - 9x9 matrix of characters
-        short board[ROW][COLUMN] = {EMPTY};
-
-        //game settings - global variables used in the update function
-
+    application_init();
+    
     //enter game loop
-        //display
-            //display game board
-            display(board);
+    while(application_QUIT == FALSE){
+    
+        //shows the ui to the user
+        application_display();
+    
+        // takes in player input and performs error checking
+        application_getInput();
+
+        // updates the state of the application based on the users input
+        application_update();
         
-        //get input
-            //get input and validate it from the user
-            //get input and validate it from the matchbox
+    }//end game loop
 
-        //update the game
-            //update the board
-            //check game state
-
-    //shutdown stuff
-        //reward/punish the matchboxes based on performance
-        //log the changes
-        //save matchbox data
-        //uninitialize data
+    //punish / reward the matchboxes and save the information
+    // and do necessary cleanup
+    application_shutDown();
 
     return 0;
 }
