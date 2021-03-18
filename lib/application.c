@@ -6,7 +6,6 @@ typedef enum
 {
     PLAY_START,
     PLAY_PLAYER_SELECT,
-    PLAY_GAME
 
 }   select_PlayMenu;
 
@@ -64,6 +63,19 @@ void application_display()
 
         case TRAIN:
             print_TrainMenu();
+            break;
+
+        case TIC_TAC_TOE:
+            printw("TIC TAC TOE\n\n");
+            printw("[1] back to Play Menu\n\n");
+
+            for (int i = 0; i < ROW; i++){
+                for(int j = 0; j < COLUMN; j++){
+                    printw("%d",board[i][j]);
+                }
+                printw("\n");
+            }
+
             break;
 
         default:
@@ -127,7 +139,17 @@ void application_update()
                     switch(userInput)
                     {
                         case '1':
-                            playMenuSelection = MAIN;
+                            playMenuSelection = PLAY_START;
+                            break;
+                        case '2':
+                        //need to update playgame not exist
+                            playMenuSelection = PLAY_START;
+                            menuSelect = TIC_TAC_TOE;
+                            break;
+                        case '3':
+                        //need to update playgame not exist
+                            playMenuSelection = PLAY_START;
+                            menuSelect = TIC_TAC_TOE;
                             break;
                     }
                     break;
@@ -148,6 +170,15 @@ void application_update()
             {
                 case '1':
                     menuSelect = MAIN;
+                    break;
+            }
+            break;
+
+        case TIC_TAC_TOE:
+            switch(userInput)
+            {
+                case '1':
+                    menuSelect = PLAY;
                     break;
             }
             break;
@@ -180,6 +211,7 @@ void print_MainMenu()
     printw("[1]: play tic tac toe\n");
     printw("[2]: options\n");
     printw("[3]: train match boxes\n\n");
+    printw("press 'q' at any time to exit the application\n\n");
 }
 
 void print_PlayMenu(select_PlayMenu selection)
@@ -187,17 +219,17 @@ void print_PlayMenu(select_PlayMenu selection)
     switch(selection)
     {
         case PLAY_START:
-            printw("play menu\n\n");
+            printw("PLAY MENU\n\n");
             printw("[1]: back\n\n");
-            printw("select what type of game you would like to play.\n");
+            printw("select what type of game you would like to play.\n\n");
             printw("[2]: one player\n");
             printw("[3]: two player \n\n");
             break;
 
         case PLAY_PLAYER_SELECT:
-            printw("play menu\n\n");
+            printw("PLAY MENU\n\n");
             printw("[1]: back\n\n");
-            printw("wold you like to be X or O?\n");
+            printw("wold you like to be X or O?\n\n");
             printw("[2]: X\n");
             printw("[3]: O\n\n");
             break;
