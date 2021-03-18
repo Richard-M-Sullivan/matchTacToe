@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <application.h>
 
+void print_MainMenu();
+void print_PlayMenu();
+void print_OptionMenu();
+void print_TrainMenu();
 
 short board[ROW][COLUMN] = {EMPTY};
 menu menuSelect;
@@ -29,30 +33,19 @@ void application_display() {
     //based on the menu select draw the appropriate menu to the screen buffer
     switch(menuSelect){
         case MAIN:
-            printw("MATCH TAC TOE\n\n");
-            printw("[1]: play tic tac toe\n");
-            printw("[2]: options\n");
-            printw("[3]: train match boxes\n\n");
+            print_MainMenu();
             break;
 
         case PLAY:
-            printw("play menu\n\n");
-            printw("[1]: back\n");
-            printw("use the arrow keys to select a cell.\n");
-            printw("then use space bar to make your move\n");
-            printw("not implamented yet\n\n");
+            print_PlayMenu();
             break;
 
         case OPTION:
-            printw("options menu\n\n");
-            printw("[1]: back\n");
-            printw("no optins to display\n\n");
+            print_OptionMenu();
             break;
 
         case TRAIN:
-            printw("train menu\n\n");
-            printw("[1]: back\n");
-            printw("no options to display\n\n");
+            print_TrainMenu();
             break;
 
         default:
@@ -134,4 +127,31 @@ void application_update(){
 void application_shutDown(){
     //shut down the ncurses library
     endwin();
+}
+
+void print_MainMenu(){
+    printw("MATCH TAC TOE\n\n");
+    printw("[1]: play tic tac toe\n");
+    printw("[2]: options\n");
+    printw("[3]: train match boxes\n\n");
+}
+
+void print_PlayMenu(){
+    printw("play menu\n\n");
+    printw("[1]: back\n");
+    printw("use the arrow keys to select a cell.\n");
+    printw("then use space bar to make your move\n");
+    printw("not implamented yet\n\n");
+}
+
+void print_OptionMenu(){
+    printw("options menu\n\n");
+    printw("[1]: back\n");
+    printw("no optins to display\n\n");
+}
+
+void print_TrainMenu(){
+    printw("train menu\n\n");
+    printw("[1]: back\n");
+    printw("no options to display\n\n");
 }
