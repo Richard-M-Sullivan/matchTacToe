@@ -8,60 +8,73 @@ char userInput;
 
 
 void application_init(){
+    //init application variables
     application_QUIT = FALSE;
     menuSelect = MAIN;
     userInput = ' ';
+    //init ncurses library
+    initscr();
+    raw();
+    noecho();
+    keypad(stdscr, TRUE);
+
 }
 
 
 
 void application_display() {
+    //clear the screen buffer
+    clear();
 
+    //based on the menu select draw the appropriate menu to the screen buffer
     switch(menuSelect){
         case MAIN:
-            printf("MATCH TAC TOE\n\n");
-            printf("[1]: play tic tac toe\n");
-            printf("[2]: options\n");
-            printf("[3]: train match boxes\n\n");
+            printw("MATCH TAC TOE\n\n");
+            printw("[1]: play tic tac toe\n");
+            printw("[2]: options\n");
+            printw("[3]: train match boxes\n\n");
             break;
 
         case PLAY:
-            printf("play menu\n\n");
-            printf("[1]: back\n");
-            printf("use the arrow keys to select a cell.\n");
-            printf("then use space bar to make your move\n");
-            printf("not implamented yet\n\n");
+            printw("play menu\n\n");
+            printw("[1]: back\n");
+            printw("use the arrow keys to select a cell.\n");
+            printw("then use space bar to make your move\n");
+            printw("not implamented yet\n\n");
             break;
 
         case OPTION:
-            printf("options menu\n\n");
-            printf("[1]: back\n");
-            printf("no optins to display\n\n");
+            printw("options menu\n\n");
+            printw("[1]: back\n");
+            printw("no optins to display\n\n");
             break;
 
         case TRAIN:
-            printf("train menu\n\n");
-            printf("[1]: back\n");
-            printf("no options to display\n\n");
+            printw("train menu\n\n");
+            printw("[1]: back\n");
+            printw("no options to display\n\n");
             break;
 
         default:
-            printf("default\n");
+            printw("default\n");
             break;
     }
-
-    printf("\n");
+    
+    //show the buffer to the screen
+    refresh();
 }
 
 
 
 void application_getInput(){
-   userInput = getchar(); 
+    //grab a  character from the keyboard
+    userInput = getch(); 
 }
 
 
 
 void application_update(){
+    // apply logic based on the menu selection
     switch(menuSelect){
         case MAIN:
             switch(userInput){
@@ -107,15 +120,18 @@ void application_update(){
             break;
     }
 
+    //end menu specific logic
+
+    //if the user inputs q set application_QUIT flag to TRUE
+    // (this is used to control exiting the game loop)
     if (userInput == 'q'){ 
         application_QUIT = TRUE;
     }
-
-    userInput = ' ';
 }
 
 
 
 void application_shutDown(){
-
+    //shut down the ncurses library
+    endwin();
 }

@@ -1,6 +1,7 @@
 #ifndef APPLICATION_h
 #define APPLICATION_h
 
+#include <ncurses.h>
 #include <ticTacToe.h>
 
 #define FALSE 0

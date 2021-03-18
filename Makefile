@@ -8,7 +8,7 @@ TARGET = matchbox   # change target to change executible name
 CXX = gcc
 
 CFLAGS = -Iinclude
-LFLAGS = 
+LFLAGS = -lncurses 
 
 
 .PHONY: all
