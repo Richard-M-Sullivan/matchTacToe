@@ -39,5 +39,5 @@ vim:
 .PHONY: project
 project: 
 	mkdir src lib include
-	touch ./src/main.c
-	echo "#include <stdio.h> \n\nint main() { \n    return 0; \n}" > ./src/main.c
+	touch ./src/main.cpp
+	echo "#include <iostream> \n\nint main() { \n    return 0; \n}" > ./src/main.cpp
