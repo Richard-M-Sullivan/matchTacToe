@@ -1,11 +1,11 @@
 # VARIABLES
 
-FILES = $(wildcard src/*.c) $(wildcard lib/*.c)
+FILES = $(wildcard src/*.cpp) $(wildcard lib/*.cpp)
 HEADERS = $(wildcard include/*.h)
-OBJS = $(FILES:.c=.o)
+OBJS = $(FILES:.cpp=.o)
 TARGET = matchbox   # change target to change executible name
 
-CXX = gcc
+CXX = g++
 
 CFLAGS = -Iinclude
 LFLAGS = -lncurses 
@@ -17,7 +17,7 @@ all: $(TARGET)
 $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LFLAGS)
 
-%.o:	%.c
+%.o:	%.cpp
 	$(CXX) -c $< -o $@ $(CFLAGS)
 
 
