@@ -23,15 +23,13 @@ int main(int argc, char* argv[]){
         }
         else{
             std::cout<<"invalid argument"<<std::endl;
-            break;
+            continue;
         }
 
         std::cout<<gameFactory->getType()<<std::endl;
 
-        if(gameFactory != NULL){
-            delete gameFactory;
-            gameFactory = NULL;
-        }
+        delete gameFactory;
+        gameFactory = NULL;
     }
 
     return 0;
