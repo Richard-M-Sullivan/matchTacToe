@@ -1,4 +1,5 @@
 #include <iostream>
+#include <abstractgamefactory.h>
 
 int main(int argc, char* argv[]){
     
@@ -9,32 +10,28 @@ int main(int argc, char* argv[]){
         return -1;
     }
 
-    //collect arguments in a string and perform desired acitons
+    GameFactory* gameFactory = NULL;
     std::string argument = "";
 
+    // for each argument passed in create the apropriate game
     for(int i=1; i<argc; i++){
         argument = argv[i];
         
-        if(argument == "tictactoe"){
-            std::cout<<"lets make a tic tac toe graph"<<std::endl;
-            std::cout<<"creating the tic tac toe factory"<<std::endl;
-        }
-        else if(argument == "hexapawn"){
-            std::cout<<"lets make a hexapawn graph"<<std::endl;
-            std::cout<<"creating the hexapawn factory"<<std::endl;
+        if(argument == "tictactoe" ||
+           argument == "hexapawn"){
+            gameFactory = AbstractGameFactory::createGameFactory(argument);
         }
         else{
             std::cout<<"invalid argument"<<std::endl;
             break;
         }
 
-        std::cout<<"making "<<argument<<" game container"<<std::endl;
-        std::cout<<"making "<<argument<<" builder"<<std::endl;
-        std::cout<<"building "<<argument<<" graph"<<std::endl;
-        std::cout<<"storing "<<argument<<" graph in container"<<std::endl;
+        std::cout<<gameFactory->getType()<<std::endl;
 
-        std::cout<<"making "<<argument<<" serializer"<<std::endl;
-        std::cout<<"serializing "<<argument<<" graph"<<std::endl;
+        if(gameFactory != NULL){
+            delete gameFactory;
+            gameFactory = NULL;
+        }
     }
 
     return 0;
