@@ -11,9 +11,12 @@ int main(int argc, char* argv[]){
     }
 
     GameFactory* gameFactory = NULL;
-    std::string argument = "";
+    GameGraph* gameGraph = NULL;
+    GameBuilder* gameBuilder = NULL;
+    GameSerializer* gameSerializer = NULL;
 
     // for each argument passed in create the apropriate game
+    std::string argument = "";
     for(int i=1; i<argc; i++){
         argument = argv[i];
         
@@ -26,10 +29,14 @@ int main(int argc, char* argv[]){
             continue;
         }
 
-        GameGraph* graph = gameFactory->makeGameGraph();
+        gameGraph = gameFactory->makeGameGraph();
+        gameBuilder = gameFactory->makeGameBuilder();
+        gameSerializer = gameFactory->makeGameSerializer();
 
         delete gameFactory;
-        gameFactory = NULL;
+        delete gameGraph;
+        delete gameBuilder;
+        delete gameSerializer;
     }
 
     return 0;

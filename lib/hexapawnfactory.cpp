@@ -16,3 +16,11 @@ std::string HexapawnFactory::getType(){
 GameGraph* HexapawnFactory::makeGameGraph(){
     return new GameGraph();
 }
+
+GameBuilder* HexapawnFactory::makeGameBuilder(){
+    return new GameBuilder();
+}
+
+GameSerializer* HexapawnFactory::makeGameSerializer(){
+    return new GameSerializer();
+}
