@@ -10,5 +10,6 @@ class HexapawnFactory : public GameFactory{
         ~HexapawnFactory();
 
         std::string getType();
+        GameGraph* makeGameGraph();
 
 };

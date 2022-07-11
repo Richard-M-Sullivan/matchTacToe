@@ -26,7 +26,7 @@ int main(int argc, char* argv[]){
             continue;
         }
 
-        std::cout<<gameFactory->getType()<<std::endl;
+        GameGraph* graph = gameFactory->makeGameGraph();
 
         delete gameFactory;
         gameFactory = NULL;

@@ -12,3 +12,7 @@ HexapawnFactory::~HexapawnFactory(){
 std::string HexapawnFactory::getType(){
     return "hexapawn";
 }
+
+GameGraph* HexapawnFactory::makeGameGraph(){
+    return new GameGraph();
+}

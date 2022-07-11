@@ -10,5 +10,6 @@ class TicTacToeFactory : public GameFactory{
         ~TicTacToeFactory();
 
         std::string getType();
+        GameGraph* makeGameGraph();
 
 };
