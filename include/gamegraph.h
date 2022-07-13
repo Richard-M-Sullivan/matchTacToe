@@ -29,6 +29,12 @@ class GameGraphEntry{
     public:
         GameGraphEntry();
         ~GameGraphEntry();
+
+        BoardState getBoardState();
+        std::vector<GameGraphConnection> getConnections();
+
+        void setBoardState(BoardState board);
+        void setConnections(std::vector<GameGraphConnection> connections);
 };
 
 class GameGraph{
@@ -40,4 +46,7 @@ class GameGraph{
         ~GameGraph();
 
         int getNumEntries();
+
+        GameGraphEntry getEntry(int index);
+        void addEntry(GameGraphEntry entry);
 };

@@ -4,6 +4,7 @@
 #include <iostream>
 
 class GameBuilder{
+    private:
 
     public:
         virtual ~GameBuilder(){};

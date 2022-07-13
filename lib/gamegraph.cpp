@@ -42,6 +42,24 @@ GameGraphEntry::~GameGraphEntry(){
 
 }
 
+BoardState GameGraphEntry::getBoardState(){
+    return board;
+}
+
+std::vector<GameGraphConnection> GameGraphEntry::getConnections(){
+    return connections;
+}
+
+
+void GameGraphEntry::setBoardState(BoardState board){
+    this->board = board;
+}
+
+void GameGraphEntry::setConnections(std::vector<GameGraphConnection> connections){
+    this->connections = connections;
+}
+
+
 // GameGraph:: complete graph data structure, contains a list of game graph
 // entries, which contain a list of game graph connections, which contain a
 // list of move numbers followed by an ending board state
@@ -58,3 +76,19 @@ GameGraph::~GameGraph(){
 int GameGraph::getNumEntries(){
     return entries.size();
 }
+
+GameGraphEntry GameGraph::getEntry(int index){
+
+    if(getNumEntries() > index){
+        return entries.at(index);
+    }
+
+    GameGraphEntry empty;
+    return empty;
+}
+
+
+void GameGraph::addEntry(GameGraphEntry entry){
+    entries.push_back(entry);
+}
+
