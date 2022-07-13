@@ -1,6 +1,7 @@
 #pragma once
 
 #include <gamefactory.h>
+#include <tictactoegamebuilder.h>
 #include <string>
 
 class TicTacToeFactory : public GameFactory{
