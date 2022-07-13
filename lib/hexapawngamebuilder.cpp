@@ -7,3 +7,8 @@ HexapawnGameBuilder::HexapawnGameBuilder(){
 HexapawnGameBuilder::~HexapawnGameBuilder(){
     std::cout<<"hexapwan game builder deleted"<<std::endl;
 }
+
+
+bool HexapawnGameBuilder::makeGameGraph(GameGraph &gameGraph){
+    return false;
+}

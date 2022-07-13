@@ -7,3 +7,7 @@ TicTacToeGameBuilder::TicTacToeGameBuilder(){
 TicTacToeGameBuilder::~TicTacToeGameBuilder(){
     std::cout<<"tictactoe game builder destroyed"<<std::endl;
 }
+
+bool TicTacToeGameBuilder::makeGameGraph(GameGraph &gameGraph){
+    return false;
+}

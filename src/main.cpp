@@ -29,10 +29,19 @@ int main(int argc, char* argv[]){
             continue;
         }
 
+        // create the graph, build the datastructure and write its contents
+        // into a file
         gameGraph = gameFactory->makeGameGraph();
         gameBuilder = gameFactory->makeGameBuilder();
         gameSerializer = gameFactory->makeGameSerializer();
 
+        //print the size of the gameGraph
+        std::cout<<gameGraph->getNumEntries()<<std::endl;
+
+        // try and build the game graph
+        std::cout<<gameBuilder->makeGameGraph(*gameGraph)<<std::endl;
+            
+        // free memory in preparation for next command
         delete gameFactory;
         delete gameGraph;
         delete gameBuilder;

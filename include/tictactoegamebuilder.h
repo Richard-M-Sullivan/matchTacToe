@@ -9,4 +9,5 @@ class TicTacToeGameBuilder : public GameBuilder{
         TicTacToeGameBuilder();
         ~TicTacToeGameBuilder();
 
+        bool makeGameGraph(GameGraph &gameGraph);
 };
