@@ -41,3 +41,11 @@ project:
 	mkdir src lib include
 	touch ./src/main.cpp
 	echo "#include <iostream> \n\nint main() { \n    return 0; \n}" > ./src/main.cpp
+
+.PHONY: tic
+tic: $(TARGET)
+	./$(TARGET) tictactoe
+
+.PHONY: hex
+hex: $(TARGET)
+	./$(TARGET) hexapawn
