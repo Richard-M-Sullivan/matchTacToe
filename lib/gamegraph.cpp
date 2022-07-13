@@ -5,18 +5,37 @@
 // state
 
 GameGraphConnection::GameGraphConnection(){
-
+    nextBoard = "";
 }
 
 GameGraphConnection::~GameGraphConnection(){
 
 }
 
+// return a vector containing the choices that lead to the next board of the
+// current connection
+std::vector<int> GameGraphConnection::getChoices(){
+    return choiceNums;
+}
+
+// return the next board that the choices connect to
+BoardState GameGraphConnection::getNextBoard(){
+    return nextBoard;
+}
+
+void GameGraphConnection::setChoices(std::vector<int> choices){
+    this->choiceNums = choices;
+}
+
+void GameGraphConnection::setNextBoard(BoardState nextBoard){
+    this->nextBoard = nextBoard;
+}
+
 // GameGraphEntry:: this is a single entry in the graph, and it contains an
 // initial board, followed by a list of moves and ending board states
 
 GameGraphEntry::GameGraphEntry(){
-
+    board = "";
 }
 
 GameGraphEntry::~GameGraphEntry(){
