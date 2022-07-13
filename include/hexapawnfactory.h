@@ -1,6 +1,7 @@
 #pragma once
 
 #include <gamefactory.h>
+#include <hexapawngamebuilder.h>
 #include <string>
 
 class HexapawnFactory : public GameFactory{

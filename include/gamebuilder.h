@@ -6,6 +6,6 @@ class GameBuilder{
 
     public:
         GameBuilder();
-        ~GameBuilder();
+        virtual ~GameBuilder();
 
 };
