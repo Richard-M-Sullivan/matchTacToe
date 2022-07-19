@@ -1,10 +1,15 @@
 #pragma once
 
+#include <gamealgorithms.h>
+
 #include <iostream>
 #include <string>
 #include <vector>
 
-typedef std::string BoardState;
+struct BoardState{
+    int moveNum;
+    std::string state;
+};
 
 class GameGraphConnection{
     private:
@@ -40,6 +45,7 @@ class GameGraphEntry{
 class GameGraph{
     private:
         std::vector<GameGraphEntry> entries;
+        GameAlgorithms* helperFunctions;
 
     public:
         GameGraph();

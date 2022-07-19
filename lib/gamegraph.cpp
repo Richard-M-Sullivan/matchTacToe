@@ -5,7 +5,7 @@
 // state
 
 GameGraphConnection::GameGraphConnection(){
-    nextBoard = "";
+
 }
 
 GameGraphConnection::~GameGraphConnection(){
@@ -35,7 +35,7 @@ void GameGraphConnection::setNextBoard(BoardState nextBoard){
 // initial board, followed by a list of moves and ending board states
 
 GameGraphEntry::GameGraphEntry(){
-    board = "";
+
 }
 
 GameGraphEntry::~GameGraphEntry(){
@@ -69,6 +69,7 @@ GameGraph::GameGraph(){
 }
 
 GameGraph::~GameGraph(){
+    delete helperFunctions;
     std::cout<<"game graph destroyed"<<std::endl;
 }
 
