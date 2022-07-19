@@ -51,8 +51,9 @@ std::vector<GameGraphConnection> GameGraphEntry::getConnections(){
 }
 
 
-void GameGraphEntry::setBoardState(BoardState board){
-    this->board = board;
+void GameGraphEntry::setBoardState(std::string board, int move){
+    this->board.state = board;
+    this->board.moveNum = move;
 }
 
 void GameGraphEntry::setConnections(std::vector<GameGraphConnection> connections){
@@ -89,7 +90,7 @@ GameGraphEntry GameGraph::getEntry(int index){
 }
 
 
-void GameGraph::addEntry(GameGraphEntry entry){
+std::vector<GameGraphEntry> GameGraph::addEntry(GameGraphEntry entry){
     entries.push_back(entry);
 }
 

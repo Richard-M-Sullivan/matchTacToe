@@ -1,15 +1,11 @@
 #pragma once
 
 #include <gamealgorithms.h>
+#include <boardstate.h>
 
 #include <iostream>
 #include <string>
 #include <vector>
-
-struct BoardState{
-    int moveNum;
-    std::string state;
-};
 
 class GameGraphConnection{
     private:
@@ -38,7 +34,7 @@ class GameGraphEntry{
         BoardState getBoardState();
         std::vector<GameGraphConnection> getConnections();
 
-        void setBoardState(BoardState board);
+        void setBoardState(std::string board, int move);
         void setConnections(std::vector<GameGraphConnection> connections);
 };
 
@@ -54,5 +50,5 @@ class GameGraph{
         int getNumEntries();
 
         GameGraphEntry getEntry(int index);
-        void addEntry(GameGraphEntry entry);
+        std::vector<GameGraphEntry> addEntry(GameGraphEntry entry);
 };
