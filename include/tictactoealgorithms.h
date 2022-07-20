@@ -14,5 +14,8 @@ class TicTacToeAlgorithms : public GameAlgorithms{
         std::string getType();
         BoardState getStartBoard();
         int getBoardScore(BoardState board);
+        BoardState rotateBoard(BoardState board);
         BoardState flipBoard(BoardState board);
+        BoardState getMaxBoard(BoardState board);
+        std::vector<BoardState> getNextBoards(BoardState board);
 };
