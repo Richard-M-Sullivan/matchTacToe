@@ -37,9 +37,13 @@ class GameGraph{
         ~GameGraph();
 
         int getNumEntries();
+        int getNumOddEntries();
+        int getNumEvenEntries();
+        int getNumMoveEntries(int moveNum);
 
+        bool hasEntry(BoardState board);
         GameGraphEntry getEntry(int index);
-        std::vector<GameGraphEntry> addEntry(GameGraphEntry entry);
+        void addEntry(BoardState board);
 
         void addStartEntry();
 

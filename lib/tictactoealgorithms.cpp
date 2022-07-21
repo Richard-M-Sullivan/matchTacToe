@@ -48,6 +48,110 @@ int TicTacToeAlgorithms::getBoardScore(BoardState board){
     return score;
 }
 
+bool TicTacToeAlgorithms::getWon(BoardState board){
+    // if there are too few moves then no win
+    // xxx oo must be move five for there to be a win
+    if(board.moveNum < 5){
+        return false;
+    }
+
+    char symbol;
+    bool win;
+
+    // if there are horizontal connections then won
+    for(int row=0; row<3; row++){
+        win = true; //assume win
+        
+        symbol = board.state[row*3]; // the first item in the row
+
+        if(symbol == '_'){ // if the item is empty then no need to look at remaing items
+            win = false;
+        }
+        // if you are looking at an x or o, then look for win
+        else{
+            for(int column=0; column<3; column++){ // look at the remaining items
+                // if they dont match, then no win
+                if(board.state[row*3 + column] != symbol){
+                    win = false;
+                    break;
+                }
+            }
+        }
+        
+        // if a row produces a win then return
+        if(win){
+            return true;
+        }
+    }
+
+    // if there are vertical connections then won
+    for(int column=0; column<3; column++){
+        win = true; //assume win
+
+        symbol = board.state[column]; // the first item in the row
+        
+        if(symbol == '_'){ // if the item is empty then no need ot look at remaning items
+            win = false;
+        }
+        // if you are looking at an x or o, then look for win
+        else{
+            for(int row=0; row<3; row++){ // look at the remaining items
+                // if they dont match, then no win
+                if(board.state[row*3 + column] != symbol){
+                    win = false;
+                    break;
+                }
+            }
+        }
+        // if a row produces a win then return
+        if(win){
+            return true;
+        }
+    }
+
+    // if ther are diagonal connections then won
+    for(int diagonal=0; diagonal<2; diagonal++){
+        win = true; //assume win
+
+        symbol = board.state[1*3 + 1]; // the first item in the row
+
+        if(symbol == '_'){
+            win = false;
+            break;
+        }
+
+        // check left diagonal
+        if(diagonal == 0){
+            for(int pos=0; pos<3; pos++){ // look at the remaining items
+                // if they dont match, then no win
+                if(board.state[pos*3 + pos] != symbol){
+                    win = false;
+                    break;
+                }
+            }
+        }
+        // check right diagonal
+        else{
+            for(int pos=0; pos<3; pos++){ // look at the remaining items
+                // if they dont match, then no win
+                if(board.state[pos*3 + (2-pos)] != symbol){
+                    win = false;
+                    break;
+                }
+            }
+
+        }
+
+        // if a row produces a win then return
+        if(win){
+            return true;
+        }
+    }
+
+    // if no connections found return false
+    return false;
+}
+
 BoardState TicTacToeAlgorithms::rotateBoard(BoardState board){
 
     char temp;
@@ -96,16 +200,16 @@ BoardState TicTacToeAlgorithms::getMaxBoard(BoardState board){
     // found then replace max board and max score with the new board and score
     for(int flip=0; flip <= 1; flip++){
         // only need to flip the board after all 4 rotations
-        if(flip != 0){
+       // if(flip != 0){
             board = flipBoard(board);
-        }
+       // }
 
         for(int rotation=0; rotation < 4; rotation++){
             // only need to rotate the board after checking the starting
             // position
-            if(rotation != 0){
+           // if(rotation != 0){
                 board = rotateBoard(board);
-            }
+          //  }
 
             // find score of new board
             newScore = getBoardScore(board);

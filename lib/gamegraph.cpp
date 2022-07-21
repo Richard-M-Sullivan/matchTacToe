@@ -61,18 +61,99 @@ int GameGraph::getNumEntries(){
     return entries.size();
 }
 
-GameGraphEntry GameGraph::getEntry(int index){
+int GameGraph::getNumOddEntries(){
+    int count = 0;
 
-    if(getNumEntries() > index){
-        return entries.at(index);
+    for(int i=0; i<entries.size(); i++){
+        if(entries.at(i).getBoardState().moveNum % 2 == 1){
+            count++;
+        }
     }
-
-    GameGraphEntry empty;
-    return empty;
+    return count;
 }
 
+int GameGraph::getNumEvenEntries(){
+    int count = 0;
 
-std::vector<GameGraphEntry> GameGraph::addEntry(GameGraphEntry entry){
+    for(int i=0; i<entries.size(); i++){
+        if(entries.at(i).getBoardState().moveNum % 2 == 0){
+            count++;
+        }
+    }
+    return count;
+}
+
+int GameGraph::getNumMoveEntries(int moveNum){
+    int count = 0;
+
+    for(int i=0; i<entries.size(); i++){
+        if(entries.at(i).getBoardState().moveNum == moveNum){
+            count++;
+        }
+    }
+    return count;
+
+}
+
+bool GameGraph::hasEntry(BoardState board){
+    // go through the entries in reverse order
+
+    // this is because entries are built at the end of the list, so matches are
+    // most likely to occur at the end of the list for the same moveNum.
+    for(int i=entries.size()-1; i >= 0; i--){
+        
+        // if you made it past all the current items in your move number then
+        // you are guarenteed not to find it, so leave the loop
+        if(entries.at(i).getBoardState().moveNum < board.moveNum){
+            break;
+        }
+        // if you find a match return true
+        if(entries.at(i).getBoardState().state == board.state){
+            return true;
+        }
+    }
+
+    // if the search was unsuccessful then return false
+    return false;
+}
+
+GameGraphEntry GameGraph::getEntry(int index){
+    if(index < entries.size() && index >= 0){
+        return entries.at(index);
+    }
+    else{
+        GameGraphEntry empty;
+        return empty;
+    }
+}
+
+void GameGraph::addEntry(BoardState board){
+    // if the entry is too full do nothing
+    if(board.moveNum > 7){
+        return;
+    }
+
+    // if the board is an already won game do nothing
+    if( helperFunctions->getWon(board) == true ){
+        return;
+    }
+
+    // if the entry already exists do nothing
+    if(hasEntry(board)){
+        return;
+    }
+
+    // otherwise add the entry
+
+    // create an empty entry
+    GameGraphEntry entry;
+    
+    //set the board state
+    entry.setBoardState(board);
+    // calcualte and set the connections
+    entry.setConnections( helperFunctions->getConnections(board) );
+
+    // add the entry to the list
     entries.push_back(entry);
 }
 
