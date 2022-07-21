@@ -9,5 +9,8 @@ TicTacToeGameBuilder::~TicTacToeGameBuilder(){
 }
 
 bool TicTacToeGameBuilder::makeGameGraph(GameGraph &gameGraph){
-    return false;
+    // add starting entry
+    gameGraph.addStartEntry();
+
+    return true;
 }

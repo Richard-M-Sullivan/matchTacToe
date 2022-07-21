@@ -145,28 +145,11 @@ void checkGetNextBoards(TicTacToeAlgorithms algorithm){
 
     BoardState board = algorithm.getStartBoard();
 
-    std::vector<BoardState> boards = algorithm.getNextBoards(board);
-    std::vector<BoardState> boards2;
+    std::vector<GameGraphConnection> boards = algorithm.getNextBoards(board);
 
-    std::cout<<"original board"<<std::endl;
-    std::cout<<board.state<<std::endl;
-    std::cout<<"~~~~~~~~~~~"<<std::endl;
-    for(int i=0; i<boards.size(); i++){
-        std::cout<<boards.at(i).state<<std::endl;
+    for(int i=0; i<connections.size(); i++){
+        connections.at(i).print();
+        std::cout<<"\n";
     }
-   
-
-    for(int i=0; i<boards.size(); i++){
-        std::cout<<"derived board"<<std::endl;
-        std::cout<<boards.at(i).state<<std::endl;
-        std::cout<<"~~~~~~~~~~~"<<std::endl;
-        boards2 = algorithm.getNextBoards(boards.at(i));
-
-        for(int j=0; j<boards2.size(); j++){
-            std::cout<<boards2.at(j).state<<std::endl;
-        }
-        std::cout<<std::endl;
-    }
-
 
 }

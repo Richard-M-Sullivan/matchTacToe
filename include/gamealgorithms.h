@@ -1,6 +1,7 @@
 #pragma once
 
 #include <boardstate.h>
+#include <gamegraphconnection.h>
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -12,4 +13,9 @@ class GameAlgorithms{
 
         virtual std::string getType() = 0;
         virtual BoardState getStartBoard() = 0;
+        virtual int getBoardScore(BoardState board) = 0;
+        virtual BoardState rotateBoard(BoardState board) = 0;
+        virtual BoardState flipBoard(BoardState board) = 0;
+        virtual BoardState getMaxBoard(BoardState board) = 0;
+        virtual std::vector<GameGraphConnection> getConnections(BoardState board) = 0;
 };

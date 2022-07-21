@@ -120,19 +120,22 @@ BoardState TicTacToeAlgorithms::getMaxBoard(BoardState board){
     return maxBoard;
 }
         
-std::vector<BoardState> TicTacToeAlgorithms::getNextBoards(BoardState board){
-    // create a vector to hold new boards
-    std::vector<BoardState> boards;
-    // flag to see if there is a duplicate board
+std::vector<GameGraphConnection> TicTacToeAlgorithms::getConnections(BoardState board){
+    // create a vector to hold new connections
+    std::vector<GameGraphConnection> connections;
+
+    // flag to help identify duplicates
     bool duplicate;
 
     // figure out whose turn it is
     char symbol = (board.moveNum % 2 == 0) ? 'x':'o';
     
-    // create new boards for every possible move and add unique boards to the
-    // list
+    // create new boards for every possible move.
+    // Add unique boards to the list of connections.
+    // If a board is not unique, then append move num to that connection
     for(int i=0; i<BOARDLEN; i++){
 
+        // create new board for possible move
         if(board.state[i] == '_'){
             // create a new board
             BoardState newBoard;
@@ -146,21 +149,29 @@ std::vector<BoardState> TicTacToeAlgorithms::getNextBoards(BoardState board){
             // make it the maximum position
             newBoard = getMaxBoard(newBoard);
             
-            // add it to the list if no duplicates
+            // check for duplicates
             duplicate = false;
             
-            for(int j=0; j< boards.size(); j++){
-                if(boards.at(j).state == newBoard.state){
+            for(int j=0; j< connections.size(); j++){
+                // if there is a duplicate board add the choice to that connection
+                if(connections.at(j).getNextBoard().state == newBoard.state){
                    duplicate = true; 
+                   connections.at(j).addChoice(i);
                    break;
                 }
             }
 
+            // if ther is not a duplicate board add the board and choice to the connection
             if(duplicate == false){
-                boards.push_back(newBoard);
+                GameGraphConnection newConnection;
+
+                newConnection.addChoice(i);
+                newConnection.setNextBoard(newBoard);
+
+                connections.push_back(newConnection);
             }
         }
     }
 
-    return boards;
+    return connections;
 }

@@ -14,7 +14,9 @@ std::string TicTacToeFactory::getType(){
 }
 
 GameGraph* TicTacToeFactory::makeGameGraph(){
-    return new GameGraph();
+    GameAlgorithms* helperFunctions = new TicTacToeAlgorithms;
+
+    return new GameGraph(helperFunctions);
 }
 
 GameBuilder* TicTacToeFactory::makeGameBuilder(){

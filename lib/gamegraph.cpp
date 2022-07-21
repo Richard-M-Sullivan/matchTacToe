@@ -1,36 +1,6 @@
 #include <gamegraph.h>
 
 
-// GameGraphConneciton:: this is a list of moves that result in an ending board
-// state
-
-GameGraphConnection::GameGraphConnection(){
-
-}
-
-GameGraphConnection::~GameGraphConnection(){
-
-}
-
-// return a vector containing the choices that lead to the next board of the
-// current connection
-std::vector<int> GameGraphConnection::getChoices(){
-    return choiceNums;
-}
-
-// return the next board that the choices connect to
-BoardState GameGraphConnection::getNextBoard(){
-    return nextBoard;
-}
-
-void GameGraphConnection::setChoices(std::vector<int> choices){
-    this->choiceNums = choices;
-}
-
-void GameGraphConnection::setNextBoard(BoardState nextBoard){
-    this->nextBoard = nextBoard;
-}
-
 // GameGraphEntry:: this is a single entry in the graph, and it contains an
 // initial board, followed by a list of moves and ending board states
 
@@ -51,15 +21,23 @@ std::vector<GameGraphConnection> GameGraphEntry::getConnections(){
 }
 
 
-void GameGraphEntry::setBoardState(std::string board, int move){
-    this->board.state = board;
-    this->board.moveNum = move;
+void GameGraphEntry::setBoardState(BoardState board){
+    this->board.state = board.state;
+    this->board.moveNum = board.moveNum;
 }
 
 void GameGraphEntry::setConnections(std::vector<GameGraphConnection> connections){
     this->connections = connections;
 }
 
+void GameGraphEntry::print(){
+    std::cout<<board.state<<" : "<<board.moveNum<<"\n";
+    for(int i=0; i<connections.size(); i++){
+        std::cout<<"\t";
+        connections.at(i).print();
+        std::cout<<"\n";
+    }
+}
 
 // GameGraph:: complete graph data structure, contains a list of game graph
 // entries, which contain a list of game graph connections, which contain a
@@ -67,6 +45,10 @@ void GameGraphEntry::setConnections(std::vector<GameGraphConnection> connections
 
 GameGraph::GameGraph(){
     std::cout<<"game graph created"<<std::endl;
+}
+GameGraph::GameGraph(GameAlgorithms* helperFunctions){
+    std::cout<<"game graph created"<<std::endl;
+    this->helperFunctions = helperFunctions;
 }
 
 GameGraph::~GameGraph(){
@@ -94,3 +76,28 @@ std::vector<GameGraphEntry> GameGraph::addEntry(GameGraphEntry entry){
     entries.push_back(entry);
 }
 
+void GameGraph::addStartEntry(){
+    // a graph entry is composed of a board state
+    // followed by a list of game graph connections
+
+    // create an entry
+    GameGraphEntry entry;
+
+    // set the state property with the initial board state
+    BoardState startBoard = helperFunctions->getStartBoard();
+    entry.setBoardState(startBoard);
+
+    entry.setConnections( helperFunctions->getConnections(startBoard) );
+
+
+   
+    // add the entry to the entries list
+    entries.push_back(entry);
+}
+
+void GameGraph::print(){
+    for(int i=0; i<entries.size(); i++){
+        entries.at(i).print();
+        std::cout<<"\n";
+    }
+}

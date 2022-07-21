@@ -2,26 +2,11 @@
 
 #include <gamealgorithms.h>
 #include <boardstate.h>
+#include <gamegraphconnection.h>
 
 #include <iostream>
 #include <string>
 #include <vector>
-
-class GameGraphConnection{
-    private:
-        std::vector<int> choiceNums;
-        BoardState nextBoard;
-
-    public:
-        GameGraphConnection();
-        ~GameGraphConnection();
-
-        std::vector<int> getChoices();
-        BoardState getNextBoard();
-
-        void setChoices(std::vector<int> choices);
-        void setNextBoard(BoardState nextBoard);
-};
 
 class GameGraphEntry{
     private:
@@ -34,8 +19,10 @@ class GameGraphEntry{
         BoardState getBoardState();
         std::vector<GameGraphConnection> getConnections();
 
-        void setBoardState(std::string board, int move);
+        void setBoardState(BoardState board);
         void setConnections(std::vector<GameGraphConnection> connections);
+
+        void print();
 };
 
 class GameGraph{
@@ -45,10 +32,16 @@ class GameGraph{
 
     public:
         GameGraph();
+        GameGraph(GameAlgorithms* helperFunctions);
+
         ~GameGraph();
 
         int getNumEntries();
 
         GameGraphEntry getEntry(int index);
         std::vector<GameGraphEntry> addEntry(GameGraphEntry entry);
+
+        void addStartEntry();
+
+        void print();
 };
