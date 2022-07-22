@@ -14,7 +14,9 @@ std::string HexapawnFactory::getType(){
 }
 
 GameGraph* HexapawnFactory::makeGameGraph(){
-    return new GameGraph();
+    GameAlgorithms* helperFunctions = new HexapawnAlgorithms;
+
+    return new GameGraph(helperFunctions);
 }
 
 GameBuilder* HexapawnFactory::makeGameBuilder(){

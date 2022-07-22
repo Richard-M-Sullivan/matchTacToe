@@ -2,6 +2,7 @@
 
 #include <gamefactory.h>
 #include <hexapawngamebuilder.h>
+#include <hexapawnalgorithms.h>
 #include <string>
 
 class HexapawnFactory : public GameFactory{
