@@ -3,7 +3,6 @@
 #include <string>
 #include <gamegraph.h>
 #include <gamebuilder.h>
-#include <gameserializer.h>
 
 class GameFactory{
 
@@ -13,6 +12,5 @@ class GameFactory{
 
     virtual GameGraph* makeGameGraph() = 0;
     virtual GameBuilder* makeGameBuilder() = 0;
-    virtual GameSerializer* makeGameSerializer() = 0;
 
 };

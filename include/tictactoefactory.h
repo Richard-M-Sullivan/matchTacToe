@@ -14,6 +14,5 @@ class TicTacToeFactory : public GameFactory{
         std::string getType();
         GameGraph* makeGameGraph();
         GameBuilder* makeGameBuilder();
-        GameSerializer* makeGameSerializer();
 
 };

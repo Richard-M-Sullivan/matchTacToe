@@ -6,8 +6,9 @@
 #include <string>
 
 class TicTacToeAlgorithms : public GameAlgorithms{
-    public:
+    private:
         static const int BOARDLEN = 9;
+        static const std::string FILENAME;
     public:
         ~TicTacToeAlgorithms();
 
@@ -23,4 +24,6 @@ class TicTacToeAlgorithms : public GameAlgorithms{
 
         BoardState getMaxBoard(BoardState board);
         std::vector<GameGraphConnection> getConnections(BoardState board);
+
+        std::string getFileName();
 };

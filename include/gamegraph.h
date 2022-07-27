@@ -5,6 +5,7 @@
 #include <gamegraphconnection.h>
 
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 
@@ -48,4 +49,5 @@ class GameGraph{
         void addStartEntry();
 
         void print();
+        void serialize();
 };

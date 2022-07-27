@@ -22,7 +22,3 @@ GameGraph* HexapawnFactory::makeGameGraph(){
 GameBuilder* HexapawnFactory::makeGameBuilder(){
     return new HexapawnGameBuilder();
 }
-
-GameSerializer* HexapawnFactory::makeGameSerializer(){
-    return new GameSerializer();
-}

@@ -22,7 +22,3 @@ GameGraph* TicTacToeFactory::makeGameGraph(){
 GameBuilder* TicTacToeFactory::makeGameBuilder(){
     return new TicTacToeGameBuilder();
 }
-
-GameSerializer* TicTacToeFactory::makeGameSerializer(){
-    return new GameSerializer();
-}

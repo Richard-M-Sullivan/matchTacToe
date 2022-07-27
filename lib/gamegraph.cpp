@@ -4,13 +4,9 @@
 // GameGraphEntry:: this is a single entry in the graph, and it contains an
 // initial board, followed by a list of moves and ending board states
 
-GameGraphEntry::GameGraphEntry(){
+GameGraphEntry::GameGraphEntry(){}
 
-}
-
-GameGraphEntry::~GameGraphEntry(){
-
-}
+GameGraphEntry::~GameGraphEntry(){}
 
 BoardState GameGraphEntry::getBoardState(){
     return board;
@@ -44,16 +40,14 @@ void GameGraphEntry::print(){
 // list of move numbers followed by an ending board state
 
 GameGraph::GameGraph(){
-    std::cout<<"game graph created"<<std::endl;
 }
+
 GameGraph::GameGraph(GameAlgorithms* helperFunctions){
-    std::cout<<"game graph created"<<std::endl;
     this->helperFunctions = helperFunctions;
 }
 
 GameGraph::~GameGraph(){
     delete helperFunctions;
-    std::cout<<"game graph destroyed"<<std::endl;
 }
 
 
@@ -180,5 +174,44 @@ void GameGraph::print(){
     for(int i=0; i<entries.size(); i++){
         entries.at(i).print();
         std::cout<<"\n";
+    }
+}
+
+void GameGraph::serialize(){
+    // create file stream object to write out to a file specified by the game
+    // helper functions
+
+    std::fstream fs(helperFunctions->getFileName(),std::fstream::out);
+
+    // containers to hold data
+    GameGraphEntry entry;
+    std::vector<GameGraphConnection> connections;
+    GameGraphConnection connection;
+    std::vector<int>choices;
+
+    //for each entry in the graph
+    for(int i=0; i< entries.size(); i++){
+        entry = getEntry(i);
+
+        // write out the board state of the entry on a line
+        fs << entry.getBoardState().state <<"\n";
+
+        // for each connection write out the move list followed by the ending board
+        // state on a line
+        connections = entry.getConnections();
+        for(int j=0; j< connections.size(); j++){
+
+            connection = connections.at(j);
+
+            choices = connection.getChoices();
+            for(int k=0; k< choices.size(); k++){
+
+                fs << choices[k] <<",";
+            }
+            fs << connection.getNextBoard().state << "\n";
+        }
+
+
+
     }
 }

@@ -11,9 +11,9 @@ int main(int argc, char* argv[]){
     }
 
     GameFactory* gameFactory = NULL;
+
     GameGraph* gameGraph = NULL;
     GameBuilder* gameBuilder = NULL;
-    GameSerializer* gameSerializer = NULL;
 
     // for each argument passed in create the apropriate game
     std::string argument = "";
@@ -33,7 +33,6 @@ int main(int argc, char* argv[]){
         // into a file
         gameGraph = gameFactory->makeGameGraph();
         gameBuilder = gameFactory->makeGameBuilder();
-        gameSerializer = gameFactory->makeGameSerializer();
 
         //print the size of the gameGraph
         std::cout<<gameGraph->getNumEntries()<<std::endl;
@@ -45,7 +44,6 @@ int main(int argc, char* argv[]){
         delete gameFactory;
         delete gameGraph;
         delete gameBuilder;
-        delete gameSerializer;
     }
 
     return 0;

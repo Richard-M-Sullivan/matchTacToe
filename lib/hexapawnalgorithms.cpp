@@ -1,5 +1,7 @@
 #include <hexapawnalgorithms.h>
 
+const std::string HexapawnAlgorithms::FILENAME = "hexapawn.txt";
+
 HexapawnAlgorithms::~HexapawnAlgorithms(){
 
 }
@@ -292,4 +294,8 @@ std::vector<GameGraphConnection> HexapawnAlgorithms::getConnections(BoardState b
     } // end outer for - iterate through the board
 
     return connections;
+}
+
+std::string HexapawnAlgorithms::getFileName(){
+    return FILENAME;
 }

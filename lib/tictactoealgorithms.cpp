@@ -1,5 +1,7 @@
 #include <tictactoealgorithms.h>
 
+const std::string TicTacToeAlgorithms::FILENAME = "tictactoe.txt";
+
 TicTacToeAlgorithms::~TicTacToeAlgorithms(){
 
 }
@@ -278,4 +280,8 @@ std::vector<GameGraphConnection> TicTacToeAlgorithms::getConnections(BoardState 
     }
 
     return connections;
+}
+
+std::string TicTacToeAlgorithms::getFileName(){
+    return FILENAME;
 }

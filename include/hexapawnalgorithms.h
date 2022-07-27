@@ -9,6 +9,7 @@ class HexapawnAlgorithms : public GameAlgorithms{
 
     public:
         static const int BOARDLEN = 9;
+        static const std::string FILENAME;
     public:
         ~HexapawnAlgorithms();
 
@@ -24,4 +25,6 @@ class HexapawnAlgorithms : public GameAlgorithms{
 
         BoardState getMaxBoard(BoardState board);
         std::vector<GameGraphConnection> getConnections(BoardState board);
+
+        std::string getFileName();
 };
