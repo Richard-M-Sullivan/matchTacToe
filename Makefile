@@ -19,7 +19,7 @@ TESTDIR = ./tests/
 # compiler settings
 
 CXX = g++
-CFLAGS = -Iinclude
+CFLAGS = -g -Iinclude
 LFLAGS = -lncurses 
 
 
@@ -35,7 +35,6 @@ all:$(TARGET)
 %test:$(OBJS)
 	$(CXX) -c $(TESTDIR)$@.cpp -o $(TESTDIR)$@.o $(CFLAGS)
 	$(CXX) -o $@ $(OBJS) $(TESTDIR)$@.o $(LFLAGS)
-	./$@
 
 # the final executable depends on all the object files and main
 

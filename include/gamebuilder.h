@@ -2,6 +2,8 @@
 
 #include <gamegraph.h>
 #include <iostream>
+#include <fstream>
+#include <sys/stat.h>
 
 class GameBuilder{
     private:

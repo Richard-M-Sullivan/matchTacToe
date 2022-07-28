@@ -12,9 +12,11 @@ int main(){
     GameBuilder* gameBuilder = gameFactory->makeGameBuilder();
 
     // construct the graph
+    std::cout<<"trying to make the graph"<<std::endl;
     gameBuilder->makeGameGraph(*gameGraph);
 
     // serialize the graph
+    std::cout<<"trying to serialize the graph"<<std::endl;
     gameGraph->serialize();
 
     // free memory

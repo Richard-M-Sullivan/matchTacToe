@@ -150,6 +150,9 @@ void GameGraph::addEntry(BoardState board){
     // add the entry to the list
     entries.push_back(entry);
 }
+void GameGraph::addEntry(GameGraphEntry entry){
+    entries.push_back(entry);
+}
 
 void GameGraph::addStartEntry(){
     // a graph entry is composed of a board state
@@ -194,7 +197,8 @@ void GameGraph::serialize(){
         entry = getEntry(i);
 
         // write out the board state of the entry on a line
-        fs << entry.getBoardState().state <<"\n";
+        fs << entry.getBoardState().state  << ","
+           << entry.getBoardState().moveNum << "\n";
 
         // for each connection write out the move list followed by the ending board
         // state on a line
@@ -208,10 +212,8 @@ void GameGraph::serialize(){
 
                 fs << choices[k] <<",";
             }
-            fs << connection.getNextBoard().state << "\n";
+            fs << connection.getNextBoard().state   << ","
+               << connection.getNextBoard().moveNum << "\n";
         }
-
-
-
     }
 }

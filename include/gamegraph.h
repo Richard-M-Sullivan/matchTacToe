@@ -45,6 +45,7 @@ class GameGraph{
         bool hasEntry(BoardState board);
         GameGraphEntry getEntry(int index);
         void addEntry(BoardState board);
+        void addEntry(GameGraphEntry entry);
 
         void addStartEntry();
 
