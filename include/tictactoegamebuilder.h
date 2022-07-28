@@ -1,8 +1,6 @@
 #pragma once
 
 #include <gamebuilder.h>
-#include <iostream>
-#include <sstream>
 
 class TicTacToeGameBuilder : public GameBuilder{
 

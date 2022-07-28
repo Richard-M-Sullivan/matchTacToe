@@ -8,7 +8,7 @@
 class TicTacToeAlgorithms : public GameAlgorithms{
     private:
         static const int BOARDLEN = 9;
-        static const std::string FILENAME;
+
     public:
         ~TicTacToeAlgorithms();
 

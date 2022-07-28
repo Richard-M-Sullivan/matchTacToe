@@ -1,7 +1,6 @@
 #pragma once
 
 #include <gamebuilder.h>
-#include <iostream>
 
 class HexapawnGameBuilder : public GameBuilder{
     

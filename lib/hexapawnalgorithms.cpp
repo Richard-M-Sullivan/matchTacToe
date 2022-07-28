@@ -1,7 +1,5 @@
 #include <hexapawnalgorithms.h>
 
-const std::string HexapawnAlgorithms::FILENAME = "hexapawn.txt";
-
 HexapawnAlgorithms::~HexapawnAlgorithms(){
 
 }
@@ -97,29 +95,6 @@ bool HexapawnAlgorithms::getWon(BoardState board){
     // so the game is won
     return true;
 }
-
-/*
-BoardState HexapawnAlgorithms::rotateBoard(BoardState board){
-
-    char temp;
-
-    // flip board across diagonal 
-
-    // iterate through all the elements to the right of the top left to bottom
-    // right diagonal
-    for(int row=0; row<3; row++){
-        for(int column = row+1; column<3; column++){
-            // swap the elements mirrored across the diagoanal
-            temp = board.state[row *3 + column];
-            board.state[row *3 + column] = board.state[column *3 + row];
-            board.state[column *3 + row] = temp;
-        }
-    }
-
-    // flip board horisontally
-    return flipBoard(board);
-}
-*/
 
 BoardState HexapawnAlgorithms::flipBoard(BoardState board){
 
@@ -297,5 +272,5 @@ std::vector<GameGraphConnection> HexapawnAlgorithms::getConnections(BoardState b
 }
 
 std::string HexapawnAlgorithms::getFileName(){
-    return FILENAME;
+    return "hexapawn.txt";
 }

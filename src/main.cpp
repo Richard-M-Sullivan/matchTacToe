@@ -34,12 +34,10 @@ int main(int argc, char* argv[]){
         gameGraph = gameFactory->makeGameGraph();
         gameBuilder = gameFactory->makeGameBuilder();
 
-        //print the size of the gameGraph
-        std::cout<<gameGraph->getNumEntries()<<std::endl;
+        gameBuilder->makeGameGraph(*gameGraph);
 
-        // try and build the game graph
-        std::cout<<gameBuilder->makeGameGraph(*gameGraph)<<std::endl;
-            
+        gameGraph->serialize();
+
         // free memory in preparation for next command
         delete gameFactory;
         delete gameGraph;
